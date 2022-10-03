@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/effects")
 public class EffectController {
 
-    @Autowired
-    private EffectRepository effectRepository;
+    private final EffectRepository effectRepository;
+
+    public EffectController(EffectRepository effectRepository) {
+        this.effectRepository = effectRepository;
+    }
 
     @GetMapping
     public List<SignalEffect> getAllEffects(){
