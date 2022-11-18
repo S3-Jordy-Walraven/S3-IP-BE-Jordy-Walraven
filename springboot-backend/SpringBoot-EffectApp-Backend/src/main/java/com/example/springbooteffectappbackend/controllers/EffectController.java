@@ -21,11 +21,14 @@ public class EffectController {
 
     @GetMapping
     public List<SignalEffect> getAllEffects(){
+
         return effectRepository.findAll();
     }
 
     @PostMapping
     public SignalEffect createEffect(@RequestBody @Valid SignalEffect effect){
+
+
         return effectRepository.save(effect);
     }
 }
