@@ -21,7 +21,7 @@ public class SignalEffect {
     @Lob
     @Column(length = 500000)
     @NotBlank(message = "Effect can not be null")
-    private String effectContent;
+    public String effectContent;
 
     @Column(name="userId")
     @NotBlank(message = "User needs to be logged in")
