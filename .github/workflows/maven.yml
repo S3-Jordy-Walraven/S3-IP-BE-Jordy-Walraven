@@ -69,5 +69,5 @@ jobs:
           with:
             context: ./springboot-backend/SpringBoot-EffectApp-Backend
             push: true
-            tags: jordywalraven/signify-app:backend
+            tags: jordywalraven/signify-app-backend:latest
 
