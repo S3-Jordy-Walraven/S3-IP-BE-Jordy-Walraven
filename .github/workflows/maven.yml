@@ -23,13 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     
     services:
-     mysql:
-      image: mysql:latest
-      env:
-        MYSQL_DATABASE: effectapp
-        MYSQL_ALLOW_EMPTY_PASSWORD: yes
-      ports:
-       - 3306:3306
+      db:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: effectapp
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: Hoppenhof.20
+        ports:
+         - 3306:3306
     
 
     steps:
