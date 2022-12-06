@@ -8,8 +8,6 @@ services:
     environment:
       - MYSQL_DATABASE=effectapp
       - MYSQL_ROOT_PASSWORD=Hoppenhof.20
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=Hoppenhof.20
     volumes:
       - dbvol:/var/lib/mysql
     ports:
