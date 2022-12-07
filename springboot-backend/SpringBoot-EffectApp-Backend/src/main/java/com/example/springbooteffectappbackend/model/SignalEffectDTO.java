@@ -1,12 +1,11 @@
 package com.example.springbooteffectappbackend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Lob;
-import javax.validation.constraints.NotBlank;
+import lombok.Getter;
 
+@Getter
 public class SignalEffectDTO {
-    public String effectName;
-    public String effectContent;
-    public  String subjectId;
-    public String creatorName;
+    private String effectName;
+    private String effectContent;
+    private String subjectId;
+    private String creatorName;
 }

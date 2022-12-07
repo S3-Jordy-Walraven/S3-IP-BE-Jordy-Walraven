@@ -33,10 +33,10 @@ public class EffectController {
     @PostMapping
     public SignalEffect createEffect(@RequestBody @Valid SignalEffectDTO effect){
         SignalEffect persistentEffect = new SignalEffect();
-        persistentEffect.setEffectName(effect.effectName);
-        persistentEffect.setEffectContent(effect.effectContent);
-        persistentEffect.setCreatorName(effect.creatorName);
-        persistentEffect.setSubjectId(effect.subjectId);
+        persistentEffect.setEffectName(effect.getEffectName());
+        persistentEffect.setEffectContent(effect.getEffectContent());
+        persistentEffect.setCreatorName(effect.getCreatorName());
+        persistentEffect.setSubjectId(effect.getSubjectId());
         return effectRepository.save(persistentEffect);
     }
 
