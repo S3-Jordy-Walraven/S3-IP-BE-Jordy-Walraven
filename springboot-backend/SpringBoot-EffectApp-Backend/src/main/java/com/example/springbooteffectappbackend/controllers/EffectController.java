@@ -1,6 +1,7 @@
 package com.example.springbooteffectappbackend.controllers;
 
 import com.example.springbooteffectappbackend.model.SignalEffect;
+import com.example.springbooteffectappbackend.model.SignalEffectDTO;
 import com.example.springbooteffectappbackend.repository.EffectRepository;
 import com.example.springbooteffectappbackend.services.Interfaces.IEffectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class EffectController {
     public ResponseEntity<?> createEffect(@RequestBody @Valid SignalEffect effect){
         SignalEffect newEffect = effectService.createEffect(effect);
         return ResponseEntity.ok().body(newEffect);
+
     }
 
     @DeleteMapping
