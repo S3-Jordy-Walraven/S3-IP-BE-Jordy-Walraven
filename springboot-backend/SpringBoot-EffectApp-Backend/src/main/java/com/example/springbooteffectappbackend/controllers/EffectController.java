@@ -35,7 +35,6 @@ public class EffectController {
     public ResponseEntity<?> createEffect(@RequestBody @Valid SignalEffect effect){
         SignalEffect newEffect = effectService.createEffect(effect);
         return ResponseEntity.ok().body(newEffect);
-
     }
 
     @DeleteMapping
