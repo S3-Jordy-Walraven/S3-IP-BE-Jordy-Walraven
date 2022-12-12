@@ -11,6 +11,14 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name="Effect")
 public class SignalEffect {
+
+    public SignalEffect( String effectName, String effectContent, String subjectId, String creatorName) {
+        this.effectName = effectName;
+        this.effectContent = effectContent;
+        this.subjectId = subjectId;
+        this.creatorName = creatorName;
+    }
+
     @Id
     @GeneratedValue
     private long id;
