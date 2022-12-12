@@ -2,6 +2,9 @@ package com.example.springbooteffectappbackend.controllers;
 
 import com.example.springbooteffectappbackend.model.SignalEffect;
 import com.example.springbooteffectappbackend.repository.EffectRepository;
+import com.example.springbooteffectappbackend.services.Interfaces.IEffectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,30 +16,31 @@ import java.util.Optional;
 @RequestMapping("/api/effects")
 public class EffectController {
 
-    private final EffectRepository effectRepository;
-
-    public EffectController(EffectRepository effectRepository) {
-        this.effectRepository = effectRepository;
-    }
-
+    @Autowired
+    private IEffectService effectService;
     @GetMapping
-    public List<SignalEffect> getAllEffects(){
-        return effectRepository.findAll();
+    public ResponseEntity<?> getEffects(){
+        List<SignalEffect> effects = effectService.getAllEffects();
+        return ResponseEntity.ok().body(effects);
     }
 
     @GetMapping("/{id}")
-    public Optional<SignalEffect> getEffectById(@PathVariable Long id){
-        return effectRepository.findById(id);
+    public ResponseEntity<?> getEffectById(@PathVariable Long id){
+        Optional<SignalEffect> effect = effectService.getEffectById(id);
+        return ResponseEntity.ok().body(effect);
     }
 
     @PostMapping
-    public SignalEffect createEffect(@RequestBody @Valid SignalEffect effect){
-        return effectRepository.save(effect);
+    public ResponseEntity<?> createEffect(@RequestBody @Valid SignalEffect effect){
+        SignalEffect newEffect = effectService.createEffect(effect);
+        return ResponseEntity.ok().body(newEffect);
     }
 
     @DeleteMapping
-    public void  deleteEffect(@PathVariable Long id){
-         effectRepository.deleteById(id);
+    public ResponseEntity<?>  deleteEffect(@PathVariable Long id){
+
+        boolean success = effectService.deleteEffect(id);
+        return ResponseEntity.ok().body(success);
     }
 }
 
