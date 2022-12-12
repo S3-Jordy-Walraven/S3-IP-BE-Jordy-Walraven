@@ -19,7 +19,6 @@ public class EffectServiceTests {
     void createEffect(){
         SignalEffect effect = new SignalEffect("effect1","<script>console.log(hellowWorld)</script>","1234","testUser");
         SignalEffect returnEffect = effectService.createEffect(effect);
-
         assert(returnEffect).equals(effect);
     }
 }
