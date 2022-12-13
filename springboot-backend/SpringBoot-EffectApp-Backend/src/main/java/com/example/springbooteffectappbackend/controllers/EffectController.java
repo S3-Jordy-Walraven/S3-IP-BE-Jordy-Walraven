@@ -32,8 +32,13 @@ public class EffectController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createEffect(@RequestBody @Valid SignalEffect effect){
-        SignalEffect newEffect = effectService.createEffect(effect);
+    public ResponseEntity<?> createEffect(@RequestBody @Valid SignalEffectDTO effect){
+        SignalEffect PostEffect = new SignalEffect();
+        PostEffect.setEffectName(effect.getEffectName());
+        PostEffect.setEffectContent(effect.getEffectContent());
+        PostEffect.setSubjectId(effect.getSubjectId());
+        PostEffect.setCreatorName(effect.getCreatorName());
+        SignalEffect newEffect = effectService.createEffect(PostEffect);
         return ResponseEntity.ok().body(newEffect);
     }
 
