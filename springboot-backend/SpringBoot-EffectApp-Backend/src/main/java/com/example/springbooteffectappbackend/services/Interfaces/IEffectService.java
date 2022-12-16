@@ -16,4 +16,5 @@ public interface IEffectService {
     public SignalEffect createEffect(SignalEffect effect);
 
     public boolean  deleteEffect( Long id);
+    public List<SignalEffect> getEffectsByUser(String id);
 }
