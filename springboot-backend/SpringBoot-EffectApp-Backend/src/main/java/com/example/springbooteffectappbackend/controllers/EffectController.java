@@ -7,6 +7,7 @@ import com.example.springbooteffectappbackend.services.Interfaces.IEffectService
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sun.misc.Signal;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -47,6 +48,12 @@ public class EffectController {
 
         boolean success = effectService.deleteEffect(id);
         return ResponseEntity.ok().body(success);
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getEffectsByUser(@PathVariable String id){
+        List<SignalEffect> effects = effectService.getEffectsByUser(id);
+        return ResponseEntity.ok().body(effects);
     }
 }
 

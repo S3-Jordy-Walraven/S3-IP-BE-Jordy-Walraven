@@ -38,4 +38,7 @@ public class EffectService implements IEffectService {
         }
 
     }
+    public List<SignalEffect> getEffectsByUser(String id) {
+        return effectRepository.findBySubjectId(id);
+    }
 }

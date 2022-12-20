@@ -58,4 +58,15 @@ public class EffectServiceTests {
         effectService.deleteEffect(1L);
         Assertions.assertEquals(effectService.getAllEffects().size(),0);
     }
+
+    @Test
+    void getEffectsByUser(){
+        SignalEffect effect1 = new SignalEffect("testEffect1", "<script>console.log(hellowWorld)</script>", "1234", "testUser");
+        effectService.createEffect(effect1);
+        SignalEffect effect2 = new SignalEffect("testEffect2", "<script>console.log(hellowWorld)</script>", "9876", "testUser2");
+        effectService.createEffect(effect2);
+
+        List<SignalEffect> effects = effectService.getEffectsByUser("1234");
+        Assertions.assertEquals(effects.size(), 1);
+    }
 }
